@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Happy Birthday Mom</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+text-align:center;
+background:linear-gradient(135deg,#ff9a9e,#fad0c4,#ffdde1);
+overflow:hidden;
+color:white;
+}
+
+/* Pages */
+.page{
+display:none;
+height:100vh;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+}
+
+.active{
+display:flex;
+}
+
+/* Card */
+.card{
+background:white;
+color:#444;
+padding:30px;
+width:360px;
+border-radius:15px;
+box-shadow:0 15px 30px rgba(0,0,0,0.3);
+}
+
+/* Button */
+button{
+margin-top:20px;
+padding:12px 25px;
+border:none;
+border-radius:8px;
+background:#ff4081;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#e91e63;
+}
+
+/* Balloons */
+.balloon{
+width:50px;
+height:70px;
+border-radius:50%;
+position:absolute;
+bottom:-100px;
+animation:float 8s infinite;
+}
+
+.balloon:nth-child(1){left:10%;background:red;}
+.balloon:nth-child(2){left:30%;background:yellow;animation-delay:2s;}
+.balloon:nth-child(3){left:50%;background:blue;animation-delay:3s;}
+.balloon:nth-child(4){left:70%;background:green;animation-delay:1s;}
+.balloon:nth-child(5){left:90%;background:pink;animation-delay:4s;}
+
+@keyframes float{
+0%{bottom:-100px;}
+100%{bottom:110%;}
+}
+
+/* Sparkles */
+.sparkle{
+position:absolute;
+width:5px;
+height:5px;
+background:white;
+border-radius:50%;
+box-shadow:0 0 10px white;
+animation:sparkleMove 6s linear infinite;
+}
+
+@keyframes sparkleMove{
+0%{transform:translateY(0);opacity:1;}
+100%{transform:translateY(-800px);opacity:0;}
+}
+
+/* Cake */
+.cake{
+margin-top:30px;
+}
+
+.layer1{
+width:220px;
+height:60px;
+background:#ff6f91;
+margin:auto;
+border-radius:10px;
+}
+
+.layer2{
+width:180px;
+height:50px;
+background:#ffc75f;
+margin:auto;
+margin-top:-10px;
+border-radius:10px;
+}
+
+.layer3{
+width:140px;
+height:40px;
+background:#f9f871;
+margin:auto;
+margin-top:-10px;
+border-radius:10px;
+}
+
+/* Candles */
+.candle{
+width:10px;
+height:35px;
+background:white;
+display:inline-block;
+margin:0 4px;
+position:relative;
+}
+
+.flame{
+width:12px;
+height:18px;
+background:orange;
+border-radius:50%;
+position:absolute;
+top:-18px;
+left:-1px;
+animation:flicker .4s infinite alternate;
+}
+
+@keyframes flicker{
+from{transform:scale(1);}
+to{transform:scale(1.3);}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Balloons -->
+<div class="balloon"></div>
+<div class="balloon"></div>
+<div class="balloon"></div>
+<div class="balloon"></div>
+<div class="balloon"></div>
+
+<!-- Sparkles -->
+<div class="sparkle" style="left:15%;bottom:0;"></div>
+<div class="sparkle" style="left:35%;bottom:0;"></div>
+<div class="sparkle" style="left:55%;bottom:0;"></div>
+<div class="sparkle" style="left:75%;bottom:0;"></div>
+
+<!-- PAGE 1 CARD -->
+<div class="page active" id="page1">
+
+<div class="card">
+
+<h1>💌 Happy Birthday Mom 💌</h1>
+
+<p>
+Dear Mom 💖  
+A special birthday surprise is waiting for you.  
+Click below to open your birthday surprise!
+</p>
+
+<button onclick="nextPage(2)">Open Card</button>
+
+</div>
+
+</div>
+
+<!-- PAGE 2 CAKE -->
+<div class="page" id="page2">
+
+<h1>🎂 Colorful Birthday Cake 🎂</h1>
+
+<div class="cake">
+
+<div>
+<span class="candle"><span class="flame"></span></span>
+<span class="candle"><span class="flame"></span></span>
+<span class="candle"><span class="flame"></span></span>
+<span class="candle"><span class="flame"></span></span>
+<span class="candle"><span class="flame"></span></span>
+</div>
+
+<div class="layer3"></div>
+<div class="layer2"></div>
+<div class="layer1"></div>
+
+</div>
+
+<button onclick="nextPage(3)">Next Surprise</button>
+
+</div>
+
+<!-- PAGE 3 WISHES -->
+<div class="page" id="page3">
+
+<h1>💖 Special Birthday Wishes 💖</h1>
+
+<p style="font-size:20px;width:70%;">
+Happy Birthday Mom! 🎉  
+You are the most wonderful person in my life.  
+Thank you for your love, care, and support every day.  
+
+May your life be filled with happiness, health, and beautiful moments.  
+🎂 Wishing you the most amazing birthday! 🎂
+</p>
+
+<h2 style="color:#ff4081;">Mom: Thank you so much for this lovely surprise! 💖</h2>
+
+</div>
+
+<script>
+
+function nextPage(page){
+document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+document.getElementById("page"+page).classList.add("active");
+}
+
+</script>
+
+</body>
+</html>
